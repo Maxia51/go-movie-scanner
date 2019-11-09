@@ -14,4 +14,5 @@ go build
 
 # run
 ./go-movie-scanner
+./go-movie-scanner -dir=/User/.../Movie
 ```
