@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -11,13 +12,17 @@ import (
 
 func main() {
 
-	files, err := ioutil.ReadDir(".")
+	path := flag.String("dir", ".", "location you want to scann")
+	flag.Parse()
+
+	files, err := ioutil.ReadDir(*path)
 
 	if err != nil {
 		golog.E(err.Error())
+		return
 	}
 
-	files = removeSelf(&files)
+	files = cleanFiles(&files)
 
 	createJSON(&files)
 
@@ -34,7 +39,7 @@ func movieToJSON(s string) string {
 	return s
 }
 
-func removeSelf(files *[]os.FileInfo) []os.FileInfo {
+func cleanFiles(files *[]os.FileInfo) []os.FileInfo {
 
 	var tmp []os.FileInfo
 
