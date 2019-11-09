@@ -10,7 +10,7 @@ Place the executable file in your movie folder. It will scann all the `.mkv` and
 
 ```shell
 # build
-go build main.go
+go build
 
 # run
 ./go-movie-scanner
