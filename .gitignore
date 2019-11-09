@@ -1,0 +1,9 @@
+# Trash Folder
+.DS_Store
+
+# Movies 
+*.mp4
+*.mkv
+
+# Json 
+*.json
